@@ -108,7 +108,12 @@ class BankAccount {
         ]);
         if (remove.remove !== null || remove.remove > 0) {
             let amountRemove = remove.remove;
-            this.amount -= amountRemove;
+            if (amountRemove < this.amount) {
+                this.amount -= amountRemove;
+            }
+            else {
+                console.log("Insufficient balance");
+            }
         }
         else {
             console.log("Enter some amount to withdraw");
